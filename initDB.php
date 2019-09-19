@@ -27,8 +27,22 @@ try{
 	$insertTest = "INSERT INTO `joa23`.`TestUsers` (`id`, `username`, `pin`) VALUES ('1', 'username', '0');";
     	$stmt = $db->prepare($insertTest);
     	$r = $stmt->execute();
-		
+	
+
+
+	$insert_query = "INSERT INTO `TestUsers`(`username`, `pin`) VALUES (':username', :pin)";
+	$stmt = $db->prepare($insert_query);
+	$r = $stmt->execute();
 	 
+	$user = "MaryJane";
+	$pin = 5678;
+	$r = $stmt->execute();
+	
+	$select_query = "select * from `TestUsers` where username = :username";
+
+	$result = $stmt->fetch();
+	echo "<br><pre>" . var_export($result, true) . "</pre><br>";
+
 }
 catch(Exception $e){
 	echo $e->getMessage();
