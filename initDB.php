@@ -21,28 +21,32 @@ try{
 		PRIMARY KEY (`id`)
 		) CHARACTER SET utf8 COLLATE utf8_general_ci";
 	
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 	$stmt = $db->prepare($query);
+	print_r($stmt->errorInfo());
 	$r = $stmt->execute();
-	echo "<br>" . $r . "<br>";
-	$insertTest = "INSERT INTO `joa23`.`TestUsers` (`id`, `username`, `pin`) VALUES ('1', 'username', '0');";
-    	$stmt = $db->prepare($insertTest);
-    	$r = $stmt->execute();
+	echo "<br>" . ($r>0?"Created table or already exists":"Failed to create table") . "<br>";
+	unset($r);
 	
-
-
-	$insert_query = "INSERT INTO `TestUsers`(`username`, `pin`) VALUES (':username', :pin)";
+	$insert_query = "INSERT INTO `TestUsers`( `username`, `pin`) VALUES (:username, :pin)";
 	$stmt = $db->prepare($insert_query);
-	$r = $stmt->execute();
-	 
-	$user = "MaryJane";
-	$pin = 5678;
-	$r = $stmt->execute();
 	
+	 
+	$newUser = "Mary";
+	$newPin = 5678;
+	$r = $stmt->execute(array(":username"=> $newUser, ":pin"=>$newPin));
+
+	print_r($stmt->errorInfo());
+
+	echo "<br>" . ($r>0?"Insert successful": "Insert failed") . "<br>";
+
+
 	$select_query = "select * from `TestUsers` where username = :username";
+	$stmt = $db->prepare($select_query);
+	$r = $stmt->execute(array(":username"=> "Mary"));
+	$results = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	$result = $stmt->fetch();
-	echo "<br><pre>" . var_export($result, true) . "</pre><br>";
-
+	echo "<pre>" . var_export($results, true) . "</pre>";
 }
 catch(Exception $e){
 	echo $e->getMessage();
