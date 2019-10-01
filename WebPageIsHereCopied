@@ -1,0 +1,33 @@
+!DOCTYPE html>
+<html>
+  <head>
+    <h2> Do you even remember how to set up a page lol </h2>
+    <p>Lets see. How much. You remember.</p>
+    
+
+    <script>
+      function pageLoaded(){
+
+      console.log("testing testing");
+      var parag1 = document.getElementById("parag1");
+      console.log(parag1);
+      parag1.innerText = "Now words have become a sentence";
+
+      var para = document.createElement("ParaA");
+      console.log(para)
+      para.innerText = "new element added";
+      }
+
+    </script>
+  </head>
+  <body onload = "pageLoaded();">
+    <p id="parag1"> Words</p>
+    <p id = "para">Is this working?</p>
+    <p>look my guy. The js will run first then the page will load</p>
+    <p>Kinda weird huh?</p>
+
+
+
+
+  </body>
+</html>
