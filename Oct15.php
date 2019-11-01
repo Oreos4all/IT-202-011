@@ -10,8 +10,15 @@
 			if(ele){
 				let home = document.getElementById('home');
 				let about = document.getElementById('about');
+				let htPlay = document.getElementById('How to Play');
+				let login = document.getElementById('Login');
+				let gTest = document.getElementById('GameTest');
+
 				home.style.display="none";
 				about.style.display = "none";
+				htPlay.style.display = "none";
+				login.style.display = "none";
+				gTest.style.display = "none";
 				ele.style.display = "block";
 			}
 		}
@@ -30,7 +37,8 @@
 			<a href="?page=home">Home</a> ||
 			<a href="?page=about">About</a> ||
 			<a href="?page=How to Play">How to Play</a> ||
-			<a href="https://web.njit.edu/~joa23/IT-202-011/Oct10.php">Login Page(testing)</a> ||
+			<a href="?page=Login">Login Page(testing)</a> ||
+			<a href="https://web.njit.edu/~joa23/IT-202-011/GameTest.php">Game Test</a> ||
 		</nav>
 		
 		</figure>
@@ -41,7 +49,7 @@
 	<div id="about">
 		<section>
 		<h3>What is ChampChomp?</h3>
-		<img src="https://lh3.googleusercontent.com/nOS_xIV07TIi_ADlJNhfuFmvYddYjjNitkWAQWwLa2OEWxJzenlItAdi9mXE9XI6MzmuLjU=s85">
+		<img src="https://cdn.frankerfacez.com/emoticon/377851/4">
 		<p>ChampChomp is a 2D side scrolling game where you play as a version of the PogChamp Twitch Emote</p>
 		<p>TESTING TESTING TESTING</p>
 		</section>
@@ -49,9 +57,15 @@
 	<div id = "How to Play">
 		<section>
 			<h3>How to Play</h3>
-			<p>To move your characther you can used W A S D or the arrow keys on your keyboard</p>
+			<p>To move your characther you can used W A S D or the arrow keys on your keyboard </p>
 		</section>
 		
+	</div>
+	<div id = "Login">
+		<section>
+			<h2>Login Page</h2>
+			<p>Please login</p>
+		</section>
 	</div>
 
 	<footer>
