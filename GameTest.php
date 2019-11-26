@@ -6,21 +6,20 @@
 
 <script>
 
-var myGamePiece;
-var canvas;
-
+var playerPiece;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "https://cdn.frankerfacez.com/emoticon/377851/4", 10, 120, "image");
     myGameArea.start();
+    playerPiece = new component(30, 30, "https://cdn.frankerfacez.com/emoticon/377851/4", 100, 120, "image");
+    
 }
 
 var myGameArea = {
-    canvas : document.getElement("canvas"),
+    canvas : document.getElementById("canvas"),
     start : function() {
-        this.canvas.width = 900;
-        this.canvas.height = 600;
-        this.context = this.canvas.getContext("2d");
+       
+
+        ctx= canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
@@ -38,7 +37,6 @@ var myGameArea = {
         clearInterval(this.interval);
     }
 }
-
 
 function component(width, height, color, x, y, type) {
     this.type = type;
@@ -70,19 +68,18 @@ function component(width, height, color, x, y, type) {
     }
 }
 
-
-
 function updateGameArea() {
     myGameArea.clear();
-    myGamePiece.speedX = 0;
-    myGamePiece.speedY = 0;    
-    if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = -1; }
-    if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = 1; }
-    if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -1; }
-    if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 1; }
-    myGamePiece.newPos();
-    myGamePiece.update();
+    playerPiece.speedX = 0;
+    playerPiece.speedY = 0;    
+    if (myGameArea.key && myGameArea.key == 37) {playerPiece.speedX = -1; }
+    if (myGameArea.key && myGameArea.key == 39) {playerPiece.speedX = 1; }
+    if (myGameArea.key && myGameArea.key == 38) {playerPiece.speedY = -1; }
+    if (myGameArea.key && myGameArea.key == 40) {playerPiece.speedY = 1; }
+    playerPiece.newPos();
+    playerPiece.update();
 }
+
 
 </script>
 
@@ -100,6 +97,7 @@ function updateGameArea() {
 		<a href="https://web.njit.edu/~joa23/IT-202-011/Oct15.php?page=about">About</a> ||
 		<a href="https://web.njit.edu/~joa23/IT-202-011/Oct15.php?page=How to Play">How to Play</a> ||
 		<a href="https://web.njit.edu/~joa23/IT-202-011/Oct15.php?page=Login">Login Page(testing)</a> ||
+        <a href="https://web.njit.edu/~joa23/IT-202-011/Oct15.php?page=Register">Registration Page(testing)</a> ||
 		<a href="https://web.njit.edu/~joa23/IT-202-011/GameTest.php">Game Test</a> ||
 	</nav>
 
